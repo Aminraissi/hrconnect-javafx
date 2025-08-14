@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+/* Background of the root container */
+.root {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 0;
+}
+
+/* Style for the main container */
+.VBox {
+    -fx-spacing: 10;
+    -fx-alignment: TOP_CENTER;
+    -fx-background-color: #f4f4f4;
+    -fx-padding: 20;
+    -fx-pref-width: 600;
+    -fx-pref-height: 800;
+}
+
+/* Label style */
+.Label {
+    -fx-font-size: 20px;
+    -fx-text-fill: BLACK;
+    -fx-font-family: 'Roboto', sans-serif;
+}
+
+/* Style for the buttons */
+.Button {
+    -fx-background-color: linear-gradient(to right, #800080, #00FFFF); /* Gradient from purple to cyan */
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-alignment: center;
+    -fx-margin-top: 20px;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 40px;
+    -fx-transition: all 0.3s ease;
+}
+
+.Button:hover {
+    -fx-background-color: linear-gradient(to right, #00FFFF, #800080);
+}
+
+/* Specific style for the "Gérer Participations" button */
+.Button#goToParticipation {
+    -fx-background-color: linear-gradient(to bottom right, #272b3f, #256b51);
+}
+
+/* TableView Style */
+.TableView {
+    -fx-pref-width: 600;
+    -fx-pref-height: 400;
+    -fx-background-color: white;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 0, 0);
+}
+
+/* TableView columns style */
+.TableColumn {
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-font-size: 14;
+    -fx-text-fill: #333;
+}
+
+/* TextField and TextArea style */
+.TextField, .TextArea {
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-font-size: 16;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333;
+    -fx-transition: all 0.3s ease;
+}
+
+.TextField:focused, .TextArea:focused {
+    -fx-border-color: #800080;
+    -fx-background-color: #e0e0e0;
+}
+
+/* ComboBox style */
+.ComboBox {
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-border-color: #ccc;
+    -fx-font-size: 16;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333;
+}
+
+/* VBox for the TableView inside a VBox container */
+.VBox#tableViewContainer {
+    -fx-spacing: 10;
+    -fx-vgrow: ALWAYS;
+}
+
+/* Style for form labels */
+.Label#formLabel {
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-font-family: 'Roboto', sans-serif;
+}
+
+/* Form input field style */
+.TextField#formTextField, .TextArea#formTextArea {
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-font-size: 16;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333;
+}
+
+.TextField:focused, .TextArea:focused {
+    -fx-border-color: #800080;
+    -fx-background-color: #e0e0e0;
+}
+
+/* Adding some spacing and border for the form container */
+.VBox#formContainer {
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-background-color: #fff;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 0, 0);
+    -fx-margin-top: 20px;
+}
+
+/* Style for the main container */
+.VBox {
+    -fx-spacing: 10;
+    -fx-alignment: TOP_CENTER;
+    -fx-background-color: #ADD8E6; /* Bleu clair */
+    -fx-padding: 20;
+    -fx-pref-width: 600;
+    -fx-pref-height: 800;
+}
+
+.blueVBox {
+    -fx-background-color: #ADD8E6; /* Bleu clair */
+}
+.titre-bleu {
+    -fx-font-size: 24px; /* Taille du texte */
+    -fx-font-weight: bold; /* Texte en gras */
+    -fx-text-fill: #4fa3d1; /* Couleur bleu clair */
+    -fx-alignment: center; /* Centrer le texte */
+    -fx-padding: 10px; /* Espacement autour du texte */
+}

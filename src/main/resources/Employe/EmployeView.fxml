@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.EmployeController"
+            prefHeight="500"
+            prefWidth="800"
+            style="-fx-background-color: #f4f4f4;">
+
+    <!-- Titre -->
+    <Label text="Gestion des Employés"
+           layoutX="20"
+           layoutY="20"
+           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333333;" />
+
+    <!-- Dashboard à gauche -->
+    <VBox layoutX="20" layoutY="60" spacing="10">
+        <Button text="Employés" onAction="#handleEmployes" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8px 16px; -fx-border-radius: 5px;" />
+        <Button text="Congés" onAction="#handleConges" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8px 16px; -fx-border-radius: 5px;" />
+    </VBox>
+
+    <!-- Formulaire -->
+    <VBox layoutX="250" layoutY="60" spacing="10">
+        <!-- Nom -->
+        <HBox spacing="10">
+            <Label text="Nom:" style="-fx-font-weight: bold; -fx-text-fill: #555555;" />
+            <TextField fx:id="tfNom" prefWidth="200" />
+        </HBox>
+
+        <!-- Prénom -->
+        <HBox spacing="10">
+            <Label text="Prénom:" style="-fx-font-weight: bold; -fx-text-fill: #555555;" />
+            <TextField fx:id="tfPrenom" prefWidth="200" />
+        </HBox>
+
+        <!-- Solde de Congés -->
+        <HBox spacing="10">
+            <Label text="Solde de Congés:" style="-fx-font-weight: bold; -fx-text-fill: #555555;" />
+            <TextField fx:id="tfSoldeConges" prefWidth="100" />
+        </HBox>
+
+        <!-- Boutons -->
+        <HBox spacing="10">
+            <Button text="Ajouter" onAction="#handleSubmit" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+            <Button fx:id="btnUpdate" text="Modifier" onAction="#handleUpdate" disable="true" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+            <Button fx:id="btnDelete" text="Supprimer" onAction="#handleDelete" disable="true" style="-fx-background-color: #f44336; -fx-text-fill: white;" />
+            <Button text="Vider" onAction="#handleClear" style="-fx-background-color: #9E9E9E; -fx-text-fill: white;" />
+        </HBox>
+    </VBox>
+
+    <!-- TableView des Employés -->
+    <TableView fx:id="tableViewEmployes"
+               layoutX="20"
+               layoutY="220"
+               prefWidth="760"
+               prefHeight="200">
+        <columns>
+            <TableColumn fx:id="colNom" text="Nom" />
+            <TableColumn fx:id="colPrenom" text="Prénom" />
+            <TableColumn fx:id="colSoldeConges" text="Solde de Congés" />
+        </columns>
+    </TableView>
+
+</AnchorPane>

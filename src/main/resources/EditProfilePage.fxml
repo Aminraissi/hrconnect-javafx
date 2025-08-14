@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditProfilePageController" hgap="10" vgap="10" style="-fx-background-color: #002147; -fx-padding: 20;">
+    <Label text="CIN:" textFill="white" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <TextField fx:id="cinField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <Label text="Tel:" textFill="white" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="telField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label text="Nom:" textFill="white" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <TextField fx:id="nomField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text="Prenom:" textFill="white" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TextField fx:id="prenomField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="Email:" textFill="white" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <TextField fx:id="emailField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+    <Label text="Password:" textFill="white" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+    <TextField fx:id="passwordField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+    <Label text="Role:" textFill="white" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+    <TextField fx:id="roleField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+    <Button text="Save" onAction="#handleSave" GridPane.rowIndex="7" GridPane.columnIndex="0" styleClass="save-button"/>
+    <Button text="Return" onAction="#handleReturn" GridPane.rowIndex="7" GridPane.columnIndex="1" styleClass="return-button"/>
+</GridPane>

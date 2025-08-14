@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
+<?import io.github.palexdev.materialfx.controls.legacy.MFXLegacyComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import jfxtras.scene.control.CalendarTextField?>
+
+<?import javafx.scene.control.ListView?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" stylesheets="@../dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.formations.ModifierFormationController">
+    <left>
+        <AnchorPane fx:id="menu" prefHeight="200.0" prefWidth="200.0" styleClass="menu" BorderPane.alignment="CENTER" />
+    </left>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="bg-white" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="41.0" layoutY="269.0" prefHeight="600.0" prefWidth="858.4" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Text text="Modifier la formation">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                        </Text>
+                  <HBox fillHeight="false" prefHeight="30.0" prefWidth="850.0" spacing="25.0">
+                     <children>
+                        <MFXButton fx:id="chooseImage" buttonType="RAISED" defaultButton="true" depthLevel="LEVEL1" onAction="#ChooseImage" prefHeight="39.0" prefWidth="93.0" rippleColor="#816262" styleClass="secondary-btn" text="Ajouter une image" textFill="#030101">
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="UPLOAD" size="16" />
+                           </graphic>
+                        </MFXButton>
+                        <ImageView fx:id="imageView" fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+                        <MFXTextField fx:id="title" floatMode="BORDER" floatingText="Titre de la formation" floatingTextGap="3.0" prefHeight="50.0" prefWidth="794.0" />
+                        <MFXTextField fx:id="description" floatMode="BORDER" floatingText="Description" floatingTextGap="3.0" prefHeight="50.0" prefWidth="794.0" />
+                        <HBox alignment="BASELINE_LEFT" layoutX="35.0" layoutY="356.0" spacing="25.0">
+                            <children>
+                                <Text text="Formateur">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Text>
+                                <MFXLegacyComboBox fx:id="formateur" prefHeight="26.0" prefWidth="262.0" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="BASELINE_LEFT" prefHeight="30.0" prefWidth="834.0">
+                            <children>
+                                <Text text="Type" />
+                                <MFXToggleButton fx:id="typeFormation" styleClass="check-box" text="Formation en ligne" textExpand="true" />
+                            </children>
+                        </HBox>
+                        <MFXTextField fx:id="emplacement" floatMode="BORDER" floatingText="Emplacement" floatingTextGap="3.0" prefHeight="50.0" prefWidth="794.0" />
+                        <ListView fx:id="suggestionsList" visible="false" />
+                        <MFXTextField fx:id="price" floatMode="BORDER" floatingText="Prix" floatingTextGap="3.0" prefHeight="50.0" prefWidth="794.0" />
+                        <HBox alignment="BASELINE_LEFT" spacing="25.0">
+                            <children>
+                                <Text text="Date Début :">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Text>
+                                <CalendarTextField fx:id="dateDebut" allowNull="false" immediate="true" prefHeight="26.0" prefWidth="264.0" promptText="" showTime="true" text="" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="BASELINE_LEFT" layoutX="35.0" layoutY="356.0" spacing="47.0">
+                            <children>
+                                <Text text="Date Fin:">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Text>
+                                <CalendarTextField fx:id="datefin" immediate="true" prefHeight="26.0" prefWidth="268.0" promptText="" showTime="true" text="" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="BASELINE_LEFT" layoutX="35.0" layoutY="292.0" prefHeight="34.0" prefWidth="834.0">
+                            <children>
+                                <Text text="Disponible pour :" />
+                                <MFXToggleButton fx:id="pourEmployes" selected="true" styleClass="check-box" text="Les employées" textExpand="true" />
+                                <MFXToggleButton fx:id="pourStagaires" selected="true" text="Les stagaires" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="BASELINE_RIGHT" layoutX="35.0" layoutY="354.0" prefHeight="34.0" prefWidth="834.0" spacing="25.0">
+                            <children>
+                                <MFXButton fx:id="saveBtn" buttonType="RAISED" defaultButton="true" depthLevel="LEVEL1" onAction="#onSave" prefHeight="39.0" prefWidth="93.0" rippleColor="#816262" styleClass="save-btn" text="Enregister" textFill="#030101">
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PENCIL" size="16" />
+                           </graphic></MFXButton>
+                                <MFXButton fx:id="cancelBtn" buttonType="RAISED" defaultButton="true" depthLevel="LEVEL1" onAction="#OnClickCancelBtn" prefHeight="39.0" prefWidth="93.0" rippleColor="#816262" styleClass="cancel-btn" text="Annuler" textFill="#030101">
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="16" />
+                           </graphic></MFXButton>
+                            </children>
+                        </HBox>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets left="25.0" right="25.0" top="25.0" />
+                    </padding>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

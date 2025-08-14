@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           stylesheets="@modern-style.css" fx:controller="controllers.ProfilRhController">
+    <children>
+        <!-- Background with color -->
+        <AnchorPane style="-fx-background-color: #1E272E;">
+            <!-- Using solid color background instead of an image -->
+        </AnchorPane>
+
+        <!-- Main Layout - Split into Side Nav and Content -->
+        <BorderPane>
+            <!-- Top Bar -->
+            <top>
+                <HBox alignment="CENTER_LEFT" spacing="20" styleClass="top-bar">
+                    <padding>
+                        <Insets top="15" right="30" bottom="15" left="30" />
+                    </padding>
+                    <children>
+                        <Label styleClass="app-title" text="RHCONNECT" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER" spacing="5" styleClass="user-info">
+                            <FontAwesomeIconView glyphName="USER" size="16" styleClass="nav-icon" />
+                            <Label fx:id="userNameLabel" styleClass="username" text="Ressources Humaines" />
+                        </HBox>
+                        <Button fx:id="logoutButton" onAction="#handleLogout" styleClass="logout-button" text="Déconnexion" />
+                    </children>
+                </HBox>
+            </top>
+
+            <!-- Side Navigation -->
+            <left>
+                <VBox fx:id="sidePanel" styleClass="side-panel" prefWidth="250">
+                    <padding>
+                        <Insets top="20" right="10" bottom="20" left="10" />
+                    </padding>
+                    <children>
+                        <!-- Profile Image -->
+                        <StackPane styleClass="profile-image-container">
+                            <FontAwesomeIconView glyphName="USER_CIRCLE" size="64" styleClass="profile-icon" />
+                        </StackPane>
+
+                        <!-- Navigation Buttons -->
+                        <VBox spacing="10" styleClass="nav-buttons" VBox.vgrow="ALWAYS">
+                            <padding>
+                                <Insets top="30" />
+                            </padding>
+                            <Button fx:id="profileButton" styleClass="nav-button, active-nav" text="Gestion du Profil">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="USER" size="16" styleClass="nav-icon" />
+                                </graphic>
+                            </Button>
+                            <Button fx:id="membersButton" styleClass="nav-button" text="Gestion des Membres">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="USERS" size="16" styleClass="nav-icon" />
+                                </graphic>
+                            </Button>
+                            <Button fx:id="employeesButton" styleClass="nav-button" text="Gestion des Employés">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="BRIEFCASE" size="16" styleClass="nav-icon" />
+                                </graphic>
+                            </Button>
+                            <Button fx:id="statsButton" styleClass="nav-button" text="Statistiques">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="CHART_BAR" size="16" styleClass="nav-icon" />
+                                </graphic>
+                            </Button>
+                            <Button fx:id="settingsButton" styleClass="nav-button" text="Paramètres">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="COG" size="16" styleClass="nav-icon" />
+                                </graphic>
+                            </Button>
+                        </VBox>
+
+                        <!-- App Version -->
+                        <HBox alignment="CENTER" styleClass="app-version">
+                            <Label text="RHCONNECT v2.1.0" />
+                        </HBox>
+                    </children>
+                </VBox>
+            </left>
+
+            <!-- Main Content -->
+            <center>
+                <StackPane>
+                    <children>
+                        <!-- Profile Management -->
+                        <VBox fx:id="profileContent" styleClass="content-area" visible="true">
+                            <children>
+                                <!-- Header -->
+                                <HBox alignment="CENTER_LEFT" styleClass="content-header">
+                                    <FontAwesomeIconView glyphName="ID_CARD" size="24" styleClass="section-icon" />
+                                    <Label styleClass="section-title" text="Gestion du Profil" />
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label fx:id="dateTimeLabel" styleClass="datetime-label" text="12/05/2025 16:21" />
+                                </HBox>
+
+                                <!-- Role Badge -->
+                                <HBox alignment="CENTER_LEFT" styleClass="role-badge-container">
+                                    <Label fx:id="userRoleLabel" styleClass="role-badge" text="RH" />
+                                    <Label fx:id="sessionInfoLabel" styleClass="session-info" text="Session active depuis: 15:30" />
+                                </HBox>
+
+                                <!-- Profile Form -->
+                                <HBox styleClass="form-container">
+                                    <!-- Profile Form -->
+                                    <VBox spacing="20" HBox.hgrow="ALWAYS" styleClass="form-content">
+                                        <GridPane hgap="20" vgap="15" styleClass="form-grid">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150" minWidth="150" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="250" />
+                                            </columnConstraints>
+
+                                            <!-- Nom Field -->
+                                            <Label text="Nom:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                            <VBox styleClass="input-container" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                                    <FontAwesomeIconView glyphName="USER" size="16" styleClass="field-icon" />
+                                                    <TextField fx:id="nomField" promptText="Nom" styleClass="form-field" HBox.hgrow="ALWAYS" />
+                                                </HBox>
+                                            </VBox>
+
+                                            <!-- Prénom Field -->
+                                            <Label text="Prénom:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                            <VBox styleClass="input-container" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                                    <FontAwesomeIconView glyphName="USER" size="16" styleClass="field-icon" />
+                                                    <TextField fx:id="prenomField" promptText="Prénom" styleClass="form-field" HBox.hgrow="ALWAYS" />
+                                                </HBox>
+                                            </VBox>
+
+                                            <!-- Email Field -->
+                                            <Label text="Email:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                            <VBox styleClass="input-container" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                                    <FontAwesomeIconView glyphName="ENVELOPE" size="16" styleClass="field-icon" />
+                                                    <TextField fx:id="emailField" promptText="Email" styleClass="form-field" HBox.hgrow="ALWAYS" />
+                                                </HBox>
+                                            </VBox>
+
+                                            <!-- Password Field -->
+                                            <Label text="Mot de passe:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                            <VBox spacing="5" styleClass="input-container" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                                    <FontAwesomeIconView glyphName="KEY" size="16" styleClass="field-icon" />
+                                                    <StackPane HBox.hgrow="ALWAYS">
+                                                        <PasswordField fx:id="passwordField" promptText="••••••••" styleClass="form-field" />
+                                                        <TextField fx:id="passwordTextField" promptText="••••••••" styleClass="form-field" visible="false" />
+                                                    </StackPane>
+                                                </HBox>
+                                                <HBox alignment="CENTER_RIGHT">
+                                                    <CheckBox fx:id="showPasswordCheck" text="Afficher le mot de passe" styleClass="show-password" />
+                                                </HBox>
+                                            </VBox>
+                                        </GridPane>
+
+                                        <!-- Action Buttons -->
+                                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                                            <Button fx:id="resetButton" onAction="#handleReset" styleClass="secondary-button" text="Réinitialiser" />
+                                            <Button onAction="#handleModifyProfile" styleClass="primary-button" text="Enregistrer">
+                                                <graphic>
+                                                    <FontAwesomeIconView glyphName="SAVE" />
+                                                </graphic>
+                                            </Button>
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+                            </children>
+                        </VBox>
+
+                        <!-- Members Management -->
+                        <VBox fx:id="membersContent" styleClass="content-area" visible="false">
+                            <!-- Header -->
+                            <HBox alignment="CENTER_LEFT" styleClass="content-header">
+                                <FontAwesomeIconView glyphName="USERS" size="24" styleClass="section-icon" />
+                                <Label styleClass="section-title" text="Gestion des Membres" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <TextField fx:id="memberSearchField" promptText="Rechercher un membre" styleClass="search-field" />
+                                <Button fx:id="addMemberButton" onAction="#handleAddMember" styleClass="action-button, accent-button" text="Ajouter">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="USER_PLUS" />
+                                    </graphic>
+                                </Button>
+                            </HBox>
+
+                            <!-- Members List -->
+                            <ScrollPane fitToWidth="true" styleClass="results-scroll" VBox.vgrow="ALWAYS">
+                                <VBox fx:id="memberContainer" spacing="10" styleClass="results-container" />
+                            </ScrollPane>
+                        </VBox>
+
+                        <!-- Employees Management -->
+                        <VBox fx:id="employeesContent" styleClass="content-area" visible="false">
+                            <!-- Header -->
+                            <HBox alignment="CENTER_LEFT" styleClass="content-header">
+                                <FontAwesomeIconView glyphName="BRIEFCASE" size="24" styleClass="section-icon" />
+                                <Label styleClass="section-title" text="Gestion des Employés" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <TextField fx:id="employeeSearchField" promptText="Rechercher un employé" styleClass="search-field" />
+                                <Button fx:id="addEmployeeButton" onAction="#handleAddEmployee" styleClass="action-button, accent-button" text="Ajouter">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="USER_PLUS" />
+                                    </graphic>
+                                </Button>
+                            </HBox>
+
+                            <!-- Employees List -->
+                            <ScrollPane fitToWidth="true" styleClass="results-scroll" VBox.vgrow="ALWAYS">
+                                <VBox fx:id="employeeContainer" spacing="10" styleClass="results-container" />
+                            </ScrollPane>
+                        </VBox>
+
+                        <!-- Stats Content -->
+                        <VBox fx:id="statsContent" styleClass="content-area" visible="false">
+                            <!-- Header -->
+                            <HBox alignment="CENTER_LEFT" styleClass="content-header">
+                                <FontAwesomeIconView glyphName="CHART_BAR" size="24" styleClass="section-icon" />
+                                <Label styleClass="section-title" text="Statistiques" />
+                            </HBox>
+
+                            <!-- Stats Content -->
+                            <HBox spacing="20" VBox.vgrow="ALWAYS">
+                                <VBox styleClass="stats-card" HBox.hgrow="ALWAYS">
+                                    <Label styleClass="stats-title" text="Nombre d'employés" />
+                                    <Label fx:id="employeeCountLabel" styleClass="stats-value" text="0" />
+                                </VBox>
+                                <VBox styleClass="stats-card" HBox.hgrow="ALWAYS">
+                                    <Label styleClass="stats-title" text="Nombre de stagiaires" />
+                                    <Label fx:id="internCountLabel" styleClass="stats-value" text="0" />
+                                </VBox>
+                                <VBox styleClass="stats-card" HBox.hgrow="ALWAYS">
+                                    <Label styleClass="stats-title" text="Total utilisateurs" />
+                                    <Label fx:id="totalUsersLabel" styleClass="stats-value" text="0" />
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <!-- Settings Content -->
+                        <VBox fx:id="settingsContent" styleClass="content-area" visible="false">
+                            <!-- Header -->
+                            <HBox alignment="CENTER_LEFT" styleClass="content-header">
+                                <FontAwesomeIconView glyphName="COG" size="24" styleClass="section-icon" />
+                                <Label styleClass="section-title" text="Paramètres" />
+                            </HBox>
+
+                            <!-- Settings Content -->
+                            <Label text="Paramètres de l'application" />
+                        </VBox>
+                    </children>
+                </StackPane>
+            </center>
+
+            <!-- Footer -->
+            <bottom>
+                <HBox alignment="CENTER" styleClass="footer">
+                    <Label text="© 2025 - RHCONNECT | Tous droits réservés" />
+                </HBox>
+            </bottom>
+        </BorderPane>
+    </children>
+</StackPane>

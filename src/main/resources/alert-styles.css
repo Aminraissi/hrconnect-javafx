@@ -1,0 +1,100 @@
+/* Custom CSS to use with your alert-styles.css */
+
+/* Dialog base styling */
+.dialog-pane {
+    -fx-background-color: #263238;
+    -fx-padding: 20;
+}
+
+/* Header styling */
+.dialog-pane .header-panel {
+    -fx-background-color: #37474F;
+    -fx-padding: 15;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Content styling */
+.dialog-pane .content {
+    -fx-padding: 15;
+    -fx-text-fill: #ECEFF1;
+}
+
+/* Button styling */
+.dialog-pane .button-bar .button {
+    -fx-background-color: #546E7A;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20;
+    -fx-background-radius: 4;
+}
+
+.dialog-pane .button-bar .button:hover {
+    -fx-background-color: #607D8B;
+}
+
+/* Specific button types */
+.dialog-pane .button-bar .button.primary {
+    -fx-background-color: #2196F3;
+}
+
+.dialog-pane .button-bar .button.primary:hover {
+    -fx-background-color: #42A5F5;
+}
+
+.dialog-pane .button-bar .button.danger {
+    -fx-background-color: #F44336;
+}
+
+.dialog-pane .button-bar .button.danger:hover {
+    -fx-background-color: #EF5350;
+}
+
+/* User detail fields styling */
+.user-detail-row {
+    -fx-padding: 8 5;
+    -fx-background-color: rgba(38, 50, 56, 0.5);
+    -fx-background-radius: 4;
+}
+
+.user-detail-row:hover {
+    -fx-background-color: rgba(55, 71, 79, 0.5);
+}
+
+.user-detail-label {
+    -fx-text-fill: #B0BEC5;
+    -fx-min-width: 100;
+}
+
+.user-detail-value {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Role badge styling */
+.role-badge {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-padding: 5 15;
+    -fx-background-radius: 20;
+    -fx-font-weight: bold;
+}
+
+/* Admin role */
+.role-badge.admin {
+    -fx-background-color: #FF9800;
+}
+
+/* User role */
+.role-badge.user {
+    -fx-background-color: #2196F3;
+}
+
+/* Icons styling */
+.icon {
+    -fx-fill: #90CAF9;
+}

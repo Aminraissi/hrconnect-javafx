@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.melocode.semin.controllers.ParticipationCrudController" stylesheets="@part.css">
+    <ScrollPane fitToWidth="true" fitToHeight="true">
+        <VBox alignment="TOP_CENTER" spacing="10" style="-fx-background-color: #f4f4f4;">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <!-- Title -->
+            <Label text="Réserver une Place au Séminaire" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+            <!-- Séminaire ComboBox -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Séminaire:" style="-fx-font-weight: bold;" />
+                <ComboBox fx:id="seminaireComboBox" promptText="Sélectionner un séminaire" />
+            </HBox>
+
+            <!-- Coût Section -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Coût:" style="-fx-font-weight: bold;" />
+                <Label fx:id="coutLabel" text="0.0" />
+            </HBox>
+
+            <!-- Statut Section -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Statut:" style="-fx-font-weight: bold;" />
+                <TextField fx:id="statutField" promptText="Ex: Confirmé" />
+            </HBox>
+
+            <!-- Évaluation Section -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Évaluation:" style="-fx-font-weight: bold;" />
+                <TextField fx:id="evaluationField" promptText="Facultatif" />
+            </HBox>
+
+            <!-- Certificat Section -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Certificat:" style="-fx-font-weight: bold;" />
+                <TextField fx:id="certificatField" promptText="Oui/Non" />
+            </HBox>
+
+            <!-- Buttons -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Réserver" fx:id="reserverButton" onAction="#ajouterParticipation" styleClass="button-bleu" />
+                <Button text="Agenda" onAction="#showAgendaPopup" styleClass="button-bleu" />
+            </HBox>
+
+            <!-- Charts Section -->
+            <Label text="Statistiques des Participations" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <HBox spacing="20" alignment="CENTER">
+                <PieChart fx:id="pieChart" title="Statut des Participations" />
+                <ScatterChart fx:id="scatterChart" title="Participations par Date">
+                    <xAxis>
+                        <CategoryAxis label="Date d'Inscription" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="ID Séminaire" />
+                    </yAxis>
+                </ScatterChart>
+            </HBox>
+
+            <!-- Table Section -->
+            <Label text="Liste des Participations" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <TableView fx:id="tableView" styleClass="table-view">
+                <columns>
+                    <TableColumn text="ID Participation" fx:id="idColumn" />
+                    <TableColumn text="ID Séminaire" fx:id="seminaireIdColumn" />
+                    <TableColumn text="Statut" fx:id="statutColumn" />
+                    <TableColumn text="Date Inscription" fx:id="dateInscriptionColumn" />
+                    <TableColumn text="Évaluation" fx:id="evaluationColumn" />
+                    <TableColumn text="Certificat" fx:id="certificatColumn" />
+                </columns>
+            </TableView>
+        </VBox>
+    </ScrollPane>
+</AnchorPane>

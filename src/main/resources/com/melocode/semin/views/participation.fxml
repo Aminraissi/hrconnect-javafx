@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.melocode.semin.controllers.ParticipationController" stylesheets="@sem.css">
+    <!-- ScrollPane to allow scrolling of content -->
+    <ScrollPane fitToWidth="true" fitToHeight="true">
+        <VBox alignment="TOP_CENTER" layoutX="20" layoutY="20" spacing="10" style="-fx-background-color: #f4f4f4;" styleClass="blueVBox">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <Label style="-fx-font-size: 20px;" styleClass="titre-bleu" text="Réserver une Place au Séminaire" textFill="BLACK" />
+
+            <!-- Séminaire ComboBox -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Séminaire:"/>
+                <ComboBox fx:id="seminaireComboBox" promptText="Sélectionner un séminaire" onAction="#updateCout"/>
+            </HBox>
+
+            <!-- Coût Section -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Coût:"/>
+                <Label fx:id="coutLabel" text="0.0"/>
+            </HBox>
+
+            <!-- Statut Section -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Statut:"/>
+                <TextField fx:id="statutField" promptText="Ex: Confirmé"/>
+            </HBox>
+
+            <!-- Évaluation Section -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Évaluation:"/>
+                <TextField fx:id="evaluationField" promptText="Facultatif"/>
+            </HBox>
+
+            <!-- Certificat Section -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Certificat:"/>
+                <TextField fx:id="certificatField" promptText="Oui/Non"/>
+            </HBox>
+
+            <!-- Réserver Button -->
+            <Button text="Réserver" fx:id="reserverButton" onAction="#ajouterParticipation" styleClass="button-bleu"/>
+
+            <!-- Participations Table Section -->
+            <Label text="Liste des Participations" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <ScrollPane fitToWidth="true" fitToHeight="true">
+                <TableView fx:id="tableView">
+                    <columns>
+                        <TableColumn text="ID Participation" fx:id="idColumn"/>
+                        <TableColumn text="ID Séminaire" fx:id="seminaireIdColumn"/>
+                        <TableColumn text="Statut" fx:id="statutColumn"/>
+                        <TableColumn text="Date Inscription" fx:id="dateInscriptionColumn"/>
+                        <TableColumn text="Évaluation" fx:id="evaluationColumn"/>
+                        <TableColumn text="Certificat" fx:id="certificatColumn"/>
+                    </columns>
+                </TableView>
+            </ScrollPane>
+        </VBox>
+    </ScrollPane>
+</AnchorPane>

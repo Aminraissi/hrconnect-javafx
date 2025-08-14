@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" stylesheets="@../../dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.formations.quiz.ListeQuizController">
+   <left>
+      <AnchorPane fx:id="menu" prefHeight="200.0" prefWidth="200.0" styleClass="menu" BorderPane.alignment="CENTER" />
+   </left>
+<center>
+   <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="bg-white" BorderPane.alignment="CENTER">
+      <children>
+         <VBox layoutX="41.0" layoutY="269.0" prefHeight="650.4" prefWidth="900.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+                  <HBox>
+                     <children>
+                        <Text text="Liste des questions pour la formation :  ">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="foamtionTitle" layoutX="10.0" layoutY="31.0">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <Button fx:id="ajouterQuiz" mnemonicParsing="false" onAction="#ajouterQuestion" styleClass="save-btn" text="Ajouter Question">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="16" />
+                     </graphic></Button>
+               <VBox fx:id="vbox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </children>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <padding>
+               <Insets left="25.0" right="25.0" top="25.0" />
+            </padding>
+         </VBox>
+      </children>
+   </AnchorPane>
+</center>
+</BorderPane>

@@ -1,0 +1,41 @@
+.chatbot-container {
+    -fx-background-color: #F9F9F9;
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+.chat-area {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #DDDDDD;
+    -fx-border-radius: 8px;
+    -fx-font-size: 14px;
+}
+
+.input-container {
+    -fx-padding: 5px;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #DDDDDD;
+    -fx-border-radius: 8px;
+}
+
+.input-field {
+    -fx-background-color: #F5F5F5;
+    -fx-border-color: transparent;
+    -fx-border-radius: 6px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+}
+
+.send-button {
+    -fx-background-color: #007BFF;
+    -fx-text-fill: white;
+    -fx-border-radius: 6px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.send-button:hover {
+    -fx-background-color: #0056b3;
+}

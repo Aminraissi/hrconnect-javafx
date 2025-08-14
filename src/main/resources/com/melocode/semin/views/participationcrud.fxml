@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane stylesheets="@partscr.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.melocode.semin.controllers.ParticipationCrudController">
+    <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <VBox alignment="TOP_CENTER" maxWidth="Infinity" spacing="10" style="-fx-background-color: #f4f4f4;">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <!-- Title -->
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Réserver une Place au Séminaire" />
+
+            <!-- Séminaire ComboBox -->
+            <HBox alignment="CENTER" spacing="10">
+                <Label style="-fx-font-weight: bold;" text="Séminaire:" />
+                <ComboBox fx:id="seminaireComboBox" promptText="Sélectionner un séminaire" />
+            </HBox>
+
+            <!-- Coût Section -->
+            <HBox alignment="CENTER" spacing="10">
+                <Label style="-fx-font-weight: bold;" text="Coût:" />
+                <Label fx:id="coutLabel" text="0.0" />
+            </HBox>
+
+            <!-- Statut Section -->
+            <HBox alignment="CENTER" spacing="10">
+                <Label style="-fx-font-weight: bold;" text="Statut:" />
+                <TextField fx:id="statutField" promptText="Ex: Confirmé" />
+            </HBox>
+
+            <!-- Évaluation Section -->
+            <HBox alignment="CENTER" spacing="10">
+                <Label style="-fx-font-weight: bold;" text="Évaluation:" />
+                <TextField fx:id="evaluationField" promptText="Facultatif" />
+            </HBox>
+
+            <!-- Certificat Section -->
+            <HBox alignment="CENTER" spacing="10">
+                <Label style="-fx-font-weight: bold;" text="Certificat:" />
+                <TextField fx:id="certificatField" promptText="Oui/Non" />
+            </HBox>
+
+            <!-- Buttons -->
+            <HBox alignment="CENTER" spacing="10">
+                <Button fx:id="reserverButton" onAction="#ajouterParticipation" styleClass="button-bleu" text="Réserver" />
+                <Button fx:id="modifierButton" onAction="#modifierParticipation" styleClass="button-bleu" text="Modifier" />
+                <Button fx:id="supprimerButton" onAction="#supprimerParticipation" styleClass="button-bleu" text="Supprimer" />
+                <Button fx:id="rechercherButton" onAction="#rechercherParticipation" styleClass="button-bleu" text="Rechercher" />
+                <Button fx:id="exporterCsvButton" onAction="#exporterCsv" styleClass="button-bleu" text="Exporter CSV" />
+                <Button onAction="#showAgendaPopup" styleClass="button-bleu" text="Agenda" />
+            <Button fx:id="statistiques" onAction="#statistiques" styleClass="button-bleu" text="statistiques" />
+            </HBox>
+
+            <!-- Search Section -->
+            <HBox alignment="CENTER" spacing="10">
+                <Label style="-fx-font-weight: bold;" text="Rechercher:" />
+                <TextField fx:id="searchField" promptText="Entrez un critère de recherche" />
+            </HBox>
+
+            <!-- Charts and Table Section -->
+            <GridPane hgap="20" vgap="20">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50" />
+                    <ColumnConstraints percentWidth="50" />
+                </columnConstraints>
+
+                <!-- Charts Section -->
+                <VBox spacing="10" GridPane.columnIndex="0">
+                    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Statistiques des Participations" />
+
+                    <!-- Pie Chart for Participation Statistics -->
+                    <PieChart fx:id="pieChart" title="Répartition des Statuts des Participations" />
+
+                    <!-- Scatter Chart for Participations by Date -->
+                    <ScatterChart fx:id="scatterChart" title="Participations par Date">
+                        <xAxis>
+                            <CategoryAxis label="Date d'Inscription" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="ID Séminaire" />
+                        </yAxis>
+                    </ScatterChart>
+                </VBox>
+
+                <!-- Table Section -->
+                <VBox spacing="10" GridPane.columnIndex="1">
+                    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Liste des Participations" />
+                    <TableView fx:id="tableView" maxHeight="500" styleClass="table-view">
+                        <columns>
+                            <TableColumn fx:id="idColumn" text="ID Participation" />
+                            <TableColumn fx:id="seminaireIdColumn" text="ID Séminaire" />
+                            <TableColumn fx:id="statutColumn" text="Statut" />
+                            <TableColumn fx:id="dateInscriptionColumn" text="Date Inscription" />
+                            <TableColumn fx:id="evaluationColumn" text="Évaluation" />
+                            <TableColumn fx:id="certificatColumn" text="Certificat" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            <rowConstraints>
+               <RowConstraints />
+            </rowConstraints>
+            </GridPane>
+        </VBox>
+    </ScrollPane>
+</AnchorPane>

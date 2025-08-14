@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           stylesheets="@modern-style.css" fx:controller="controllers.EditUserDialogController">
+    <children>
+        <BorderPane prefWidth="600" prefHeight="500">
+            <top>
+                <HBox alignment="CENTER_LEFT" styleClass="top-bar">
+                    <padding>
+                        <Insets top="15" right="20" bottom="15" left="20" />
+                    </padding>
+                    <children>
+                        <FontAwesomeIconView glyphName="EDIT" size="24" styleClass="section-icon" />
+                        <Label styleClass="section-title" text="Modifier Utilisateur">
+                            <padding>
+                                <Insets left="10" />
+                            </padding>
+                        </Label>
+                    </children>
+                </HBox>
+            </top>
+
+            <center>
+                <VBox spacing="20" styleClass="content-container">
+                    <padding>
+                        <Insets top="20" right="30" bottom="20" left="30" />
+                    </padding>
+
+                    <GridPane hgap="20" vgap="15" styleClass="form-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150" minWidth="150" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="200" />
+                        </columnConstraints>
+
+                        <!-- CIN Field -->
+                        <Label text="CIN:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="cinField" promptText="CIN" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <!-- Phone Field -->
+                        <Label text="Téléphone:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="phoneField" promptText="Numéro de téléphone" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <!-- Name Field -->
+                        <Label text="Nom:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField fx:id="nomField" promptText="Nom" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <!-- First Name Field -->
+                        <Label text="Prénom:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <TextField fx:id="prenomField" promptText="Prénom" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        <!-- Email Field -->
+                        <Label text="Email:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <TextField fx:id="emailField" promptText="Email" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                        <!-- Password Field -->
+                        <Label text="Mot de passe:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                            <PasswordField fx:id="passwordField" promptText="Laisser vide pour ne pas modifier" styleClass="form-field" />
+                            <Label fx:id="passwordHintLabel" text="Laisser vide pour conserver le mot de passe actuel"
+                                   style="-fx-text-fill: #90CAF9; -fx-font-size: 12px;" />
+                        </VBox>
+
+                        <!-- Role Field -->
+                        <Label text="Rôle:" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                        <ComboBox fx:id="roleComboBox" promptText="Sélectionner un rôle" styleClass="form-field"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                    </GridPane>
+
+                    <!-- Buttons -->
+                    <HBox alignment="CENTER_RIGHT" spacing="10">
+                        <Button fx:id="cancelButton" onAction="#handleCancel" text="Annuler" styleClass="secondary-button" />
+                        <Button fx:id="saveButton" onAction="#handleSave" text="Enregistrer les modifications" styleClass="primary-button" />
+                    </HBox>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</StackPane>

@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+.root {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 0;
+}
+
+.header {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-alignment: center;
+}
+
+.menu {
+    -fx-background-color: linear-gradient(to bottom right, #272b3f, #256b51);
+    -fx-padding: 20;
+    -fx-spacing: 10;
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
+}
+
+.menu-title {
+    -fx-text-fill: #272b3f;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-border-color: white;
+    -fx-border-width: 1;
+}
+
+.menu-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logout-button {
+    -fx-background-color: #219a6a;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-border-color: white;
+    -fx-border-width: 1;
+    -fx-alignment: center;
+    -fx-margin-top: auto;
+}
+
+.logout-button:hover {
+    -fx-background-color: #18a383;
+}
+
+.form-container {
+    -fx-padding: 20;
+    -fx-spacing: 15;
+    -fx-background-color: #fff;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-margin-top: 20px;
+}
+
+.form-title {
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.form-label {
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-font-family: 'Roboto', sans-serif;
+}
+
+.form-textfield {
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-font-size: 16;
+    -fx-font-family: 'Roboto', sans-serif;
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333;
+    -fx-transition: all 0.3s ease;
+}
+
+.form-textfield:focused {
+    -fx-border-color: #800080;
+    -fx-background-color: #e0e0e0;
+}
+
+.form-button {
+    -fx-background-color: linear-gradient(to right, #800080, #00FFFF);
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-alignment: center;
+    -fx-margin-top: 20px;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 40px;
+    -fx-transition: all 0.3s ease;
+}
+
+.form-button:hover {
+    -fx-background-color: linear-gradient(to right, #00FFFF, #800080);
+}
+
+.centered-title {
+    -fx-alignment: center;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 20px 0;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.custom-button {
+    -fx-background-color: #1E3A8A;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.menu-button-color {
+    -fx-background-color: linear-gradient(to bottom right, #272b3f, #256b51);
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.circular-button {
+    -fx-background-color: linear-gradient(to right, #800080, #00FFFF);
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 100px;
+    -fx-alignment: center;
+    -fx-margin-top: 20px;
+}
+
+.blue-button {
+    -fx-background-color: linear-gradient(to bottom right, #272b3f, #256b51);
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.page-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #272b3f;
+}
+
+.search-container {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+.search-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #272b3f;
+}
+
+.search-field {
+    -fx-padding: 10;
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 5px;
+    -fx-font-size: 14px;
+}
+
+.search-button {
+    -fx-background-color: linear-gradient(to bottom right, #272b3f, #256b51);
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.search-button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3);
+}
+
+.result-container {
+    -fx-background-color: transparent;
+}
+
+.result-container .viewport {
+    -fx-background-color: transparent;
+}
+
+#candidaturesContainer Label {
+    -fx-background-color: white;
+    -fx-padding: 15;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+    -fx-font-size: 14px;
+}

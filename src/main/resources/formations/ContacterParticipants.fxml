@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" stylesheets="@../dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.formations.ContacterParticipantsController">
+    <left>
+        <AnchorPane fx:id="menu" prefHeight="200.0" prefWidth="200.0" styleClass="menu" BorderPane.alignment="CENTER" />
+    </left>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="bg-white" BorderPane.alignment="CENTER">
+            <children>
+                <VBox prefHeight="600.0" prefWidth="858.4" spacing="20.0" styleClass="bg-white">
+                    <children>
+                        <Text fx:id="title" text="Envoyer un message aux pariticpants">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                        </Text>
+                  <MFXTextField fx:id="sujet" floatMode="BORDER" floatingText="Sujet" floatingTextGap="3.0" prefHeight="44.0" prefWidth="586.0" />
+                  <HBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <TextArea fx:id="message" prefHeight="396.0" prefWidth="715.0" promptText="Message" />
+                        <MFXButton fx:id="corrigerBtn" onAction="#improveMsg" styleClass="save-btn" text="Corriger et améliorer" />
+                     </children>
+                  </HBox>
+                        <HBox alignment="BASELINE_RIGHT" layoutX="35.0" layoutY="354.0" prefHeight="34.0" prefWidth="834.0" spacing="25.0">
+                            <children>
+                                <MFXButton fx:id="saveBtn" buttonType="RAISED" defaultButton="true" depthLevel="LEVEL1" onAction="#onSave" prefHeight="39.0" prefWidth="93.0" rippleColor="#816262" styleClass="save-btn" text="Envoyer" textFill="#030101">
+                                    <graphic>
+                                        <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="16" />
+                                    </graphic>
+                                </MFXButton>
+                                <MFXButton fx:id="cancelBtn" buttonType="RAISED" defaultButton="true" depthLevel="LEVEL1" onAction="#OnClickCancelBtn" prefHeight="39.0" prefWidth="93.0" rippleColor="#816262" styleClass="cancel-btn" text="Annuler" textFill="WHITE">
+                                    <graphic>
+                                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="16" />
+                                    </graphic>
+                                </MFXButton>
+                            </children>
+                        </HBox>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets left="25.0" right="25.0" top="25.0" />
+                    </padding>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

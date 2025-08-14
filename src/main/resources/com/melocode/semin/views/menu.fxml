@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.melocode.semin.controllers.MenuController" prefHeight="300.0" prefWidth="400.0">
+    <children>
+        <!-- Title Label -->
+        <Label text="Main Menu" layoutX="140.0" layoutY="50.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+        <!-- Buttons for navigation -->
+        <VBox spacing="15" layoutX="100.0" layoutY="100.0" alignment="CENTER">
+            <Button fx:id="goToSeminaireButton" text="Manage Seminars" onAction="#goToSeminaire" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-pref-width: 200px;"/>
+            <Button fx:id="goToParticipationCrudButton" text="Gestion participation" onAction="#goToParticipationCrud" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-pref-width: 200px;"/>
+            <Button fx:id="goToParticipationButton" text="Manage Participation" onAction="#goToParticipation" style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white; -fx-pref-width: 200px;"/>
+
+        </VBox>
+    </children>
+</AnchorPane>

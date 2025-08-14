@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Circle?>
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           stylesheets="@modern-style.css" fx:controller="controllers.AuthentificationController">
+    <children>
+        <!-- Background with color -->
+        <AnchorPane style="-fx-background-color: #1E272E;">
+            <!-- We're using a solid color background instead of an image -->
+        </AnchorPane>
+
+        <!-- Main Content -->
+        <BorderPane prefWidth="800" prefHeight="600">
+            <!-- Header/Top Bar -->
+            <top>
+                <VBox alignment="CENTER" spacing="5" styleClass="top-bar">
+                    <padding>
+                        <Insets top="25" right="30" bottom="25" left="30" />
+                    </padding>
+                    <HBox alignment="CENTER">
+                        <FontAwesomeIconView glyphName="LOCK" size="30" styleClass="section-icon" />
+                        <Label text="Authentification" styleClass="app-title">
+                            <padding>
+                                <Insets left="15" />
+                            </padding>
+                        </Label>
+                    </HBox>
+                    <Label text="Connectez-vous à votre compte RHCONNECT" styleClass="subtitle" />
+                </VBox>
+            </top>
+
+            <!-- Center/Login Content -->
+            <center>
+                <VBox alignment="CENTER" styleClass="content-container">
+                    <padding>
+                        <Insets top="20" right="40" bottom="20" left="40" />
+                    </padding>
+
+                    <!-- Login Card -->
+                    <StackPane styleClass="form-card" maxWidth="450">
+                        <VBox spacing="25" styleClass="form-container">
+                            <padding>
+                                <Insets top="30" right="40" bottom="30" left="40" />
+                            </padding>
+
+                            <!-- Logo/User Icon -->
+                            <StackPane>
+                                <Circle radius="40" fill="#263238" stroke="#64B5F6" strokeWidth="2" />
+                                <FontAwesomeIconView glyphName="USER" size="40" styleClass="section-icon" />
+                            </StackPane>
+
+                            <!-- Login Form -->
+                            <VBox spacing="20">
+                                <!-- Email Field -->
+                                <VBox spacing="5" styleClass="input-group">
+                                    <Label text="Email" styleClass="form-label" />
+                                    <HBox spacing="10" alignment="CENTER_LEFT">
+                                        <FontAwesomeIconView glyphName="ENVELOPE" size="16" styleClass="field-icon" />
+                                        <TextField fx:id="tfemail" promptText="Entrez votre email" styleClass="form-field" HBox.hgrow="ALWAYS" />
+                                    </HBox>
+                                </VBox>
+
+                                <!-- Password Field -->
+                                <VBox spacing="5" styleClass="input-group">
+                                    <Label text="Mot de passe" styleClass="form-label" />
+                                    <HBox spacing="10" alignment="CENTER_LEFT">
+                                        <FontAwesomeIconView glyphName="KEY" size="16" styleClass="field-icon" />
+                                        <StackPane HBox.hgrow="ALWAYS">
+                                            <PasswordField fx:id="tfmdp" promptText="Entrez votre mot de passe" styleClass="form-field" />
+                                            <TextField fx:id="tfshowpassword" promptText="Entrez votre mot de passe" styleClass="form-field" visible="false" />
+                                        </StackPane>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT">
+                                        <CheckBox fx:id="show" text="Afficher le mot de passe" styleClass="show-password" />
+                                    </HBox>
+                                </VBox>
+
+                                <!-- Action Buttons -->
+                                <VBox spacing="15" alignment="CENTER">
+                                    <Button fx:id="btn_auth" text="Se connecter" onAction="#authenticate" styleClass="primary-button" prefWidth="200" />
+                                    <Button fx:id="btn_annul" text="Annuler" onAction="#annuler" styleClass="secondary-button" prefWidth="200" />
+                                </VBox>
+
+                                <!-- Divider -->
+                                <HBox alignment="CENTER" spacing="10">
+                                    <Line startX="0" endX="80" stroke="#64B5F6" strokeWidth="0.5" />
+                                    <Label text="OU" styleClass="form-label" />
+                                    <Line startX="0" endX="80" stroke="#64B5F6" strokeWidth="0.5" />
+                                </HBox>
+
+                                <!-- Google Sign In -->
+                                <Button fx:id="googleSignInButton" text="Se connecter avec Google" styleClass="google-button" onAction="#handleGoogleSignIn">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="GOOGLE" fill="#DB4437" size="16" />
+                                    </graphic>
+                                </Button>
+
+                                <!-- Links -->
+                                <VBox alignment="CENTER" spacing="10">
+                                    <Hyperlink fx:id="hyperlink" text="Mot de passe oublié?" styleClass="login-link" onAction="#handleForgotPassword" />
+                                    <HBox alignment="CENTER" spacing="5">
+                                        <Label text="Pas encore de compte?" styleClass="form-label" />
+                                        <Hyperlink text="S'inscrire" styleClass="login-link" onAction="#goToRegistration" />
+                                    </HBox>
+                                </VBox>
+                            </VBox>
+                        </VBox>
+                    </StackPane>
+                </VBox>
+            </center>
+
+            <!-- Footer -->
+            <bottom>
+                <HBox alignment="CENTER" styleClass="footer">
+                    <Label text="© 2025 - RHCONNECT | Tous droits réservés" />
+                </HBox>
+            </bottom>
+        </BorderPane>
+    </children>
+</StackPane>

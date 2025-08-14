@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="controllers.VerifyResetCodeController" stylesheets="@modern-style.css">
+    <children>
+        <AnchorPane style="-fx-background-color: #1E272E;">
+            <!-- Background -->
+        </AnchorPane>
+
+        <BorderPane prefWidth="500" prefHeight="400">
+            <top>
+                <HBox alignment="CENTER" styleClass="top-bar" spacing="10">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20" />
+                    </padding>
+                    <Text styleClass="app-title" text="RHCONNECT" fill="white" />
+                </HBox>
+            </top>
+
+            <center>
+                <VBox alignment="CENTER" spacing="20" styleClass="content-container">
+                    <padding>
+                        <Insets top="20" right="30" bottom="20" left="30" />
+                    </padding>
+
+                    <!-- Header -->
+                    <FontAwesomeIconView glyphName="LOCK" size="48" styleClass="header-icon" />
+                    <Label text="Vérification du code" styleClass="section-title" />
+                    <Label text="Veuillez saisir le code de vérification que nous vous avons envoyé par email"
+                           styleClass="section-subtitle" textAlignment="CENTER" wrapText="true" />
+
+                    <!-- Form -->
+                    <VBox spacing="15" alignment="CENTER" styleClass="form-container">
+                        <!-- New Password Field -->
+                        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="input-field-container">
+                            <FontAwesomeIconView glyphName="LOCK" size="16" styleClass="field-icon" />
+                            <PasswordField fx:id="passwordField" promptText="Nouveau mot de passe"
+                                           styleClass="form-field" HBox.hgrow="ALWAYS" />
+                        </HBox>
+
+                        <!-- Confirm Password Field -->
+                        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="input-field-container">
+                            <FontAwesomeIconView glyphName="LOCK" size="16" styleClass="field-icon" />
+                            <PasswordField fx:id="confirmPasswordField" promptText="Confirmer le mot de passe"
+                                           styleClass="form-field" HBox.hgrow="ALWAYS" />
+                        </HBox>
+
+                        <!-- Code input with custom styling -->
+                        <HBox spacing="15" alignment="CENTER" styleClass="code-input-container">
+                            <TextField fx:id="codeField" styleClass="verification-code-field" promptText="Code à 6 chiffres"
+                                       maxWidth="200" alignment="CENTER" />
+                        </HBox>
+
+                        <!-- Error/Success Messages -->
+                        <Label fx:id="messageLabel" styleClass="message-label" visible="false" />
+
+                        <!-- Submit Button -->
+                        <Button fx:id="resetButton" text="Réinitialiser"
+                                styleClass="primary-button" onAction="#handleResetPassword">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="CHECK" />
+                            </graphic>
+                        </Button>
+
+                        <!-- Request New Code -->
+                        <HBox spacing="10" alignment="CENTER">
+                            <Label text="Vous n'avez pas reçu le code ?" styleClass="hint-text" />
+                            <Hyperlink fx:id="resendCodeLink" text="Renvoyer" onAction="#handleResendCode"
+                                       styleClass="auth-link" />
+                        </HBox>
+
+                        <!-- Back to Login -->
+                        <Hyperlink text="Retour à la connexion" onAction="#handleBackToLogin"
+                                   styleClass="auth-link" />
+                    </VBox>
+                </VBox>
+            </center>
+
+            <bottom>
+                <HBox alignment="CENTER" styleClass="footer">
+                    <Label text="© 2025 - RHCONNECT | Tous droits réservés" />
+                </HBox>
+            </bottom>
+        </BorderPane>
+    </children>
+</StackPane>

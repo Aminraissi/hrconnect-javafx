@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" stylesheets="@../dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FormulaireCandidatController">
+    <left>
+        <AnchorPane fx:id="menu" prefHeight="200.0" prefWidth="200.0" styleClass="menu" BorderPane.alignment="CENTER" />
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="bg-white" BorderPane.alignment="CENTER">
+            <VBox fx:id="formContainer" spacing="15.0" styleClass="bg-white" maxWidth="Infinity">
+                <VBox alignment="CENTER">
+                    <Label fx:id="formTitle" styleClass="centered-title" text="Inscription Candidat">
+                        <padding>
+                            <Insets top="50.0" />
+                        </padding>
+                    </Label>
+                </VBox>
+
+                <Label styleClass="form-label" text="Nom" />
+                <TextField fx:id="tnom" promptText="Entrez le nom" styleClass="form-textfield" />
+
+                <Label styleClass="form-label" text="Prénom" />
+                <TextField fx:id="tprenom" promptText="Entrez le prénom" styleClass="form-textfield" />
+
+                <Label styleClass="form-label" text="Email" />
+                <TextField fx:id="temail" promptText="Entrez l'email" styleClass="form-textfield" />
+                <Label fx:id="emailErrorLabel" style="-fx-text-fill: red;" />
+
+                <Label styleClass="form-label" text="Téléphone" />
+                <TextField fx:id="ttelephone" promptText="Entrez le téléphone" styleClass="form-textfield" />
+                <Label fx:id="phoneErrorLabel" style="-fx-text-fill: red;" />
+
+                <HBox fx:id="buttonContainer" alignment="CENTER">
+                    <Button fx:id="btnsave" onAction="#suivant" styleClass="form-button" text="S'inscrire" disable="true">
+                        <padding>
+                            <Insets top="10.0" />
+                        </padding>
+                    </Button>
+                </HBox>
+
+                <HBox alignment="CENTER">
+                    <Hyperlink fx:id="loginLink" text="Vous avez déjà un compte ? Connectez-vous ici." />
+                </HBox>
+
+                <padding>
+                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                </padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

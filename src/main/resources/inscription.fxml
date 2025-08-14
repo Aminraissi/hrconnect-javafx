@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           stylesheets="@modern-style.css" fx:controller="controllers.InscriptionController">
+   <children>
+      <!-- Background with color -->
+      <AnchorPane style="-fx-background-color: #1E272E;">
+         <!-- We're not using the background image as per your request -->
+      </AnchorPane>
+
+      <!-- Main Content -->
+      <BorderPane prefWidth="800" prefHeight="650">
+         <!-- Header/Top Bar -->
+         <top>
+            <VBox alignment="CENTER" spacing="5" styleClass="top-bar">
+               <padding>
+                  <Insets top="20" right="30" bottom="20" left="30" />
+               </padding>
+               <HBox alignment="CENTER">
+                  <FontAwesomeIconView glyphName="USER_PLUS" size="30" styleClass="section-icon" />
+                  <Label text="Inscription" styleClass="app-title">
+                     <padding>
+                        <Insets left="15" />
+                     </padding>
+                  </Label>
+               </HBox>
+               <Label text="Créez votre compte pour rejoindre RHCONNECT" styleClass="subtitle" />
+            </VBox>
+         </top>
+
+         <!-- Center/Form Content -->
+         <center>
+            <ScrollPane fitToWidth="true" styleClass="transparent-scroll">
+               <VBox styleClass="content-container">
+                  <padding>
+                     <Insets top="20" right="40" bottom="20" left="40" />
+                  </padding>
+
+                  <!-- Form Card -->
+                  <StackPane styleClass="form-card">
+                     <VBox spacing="25" styleClass="form-container">
+                        <padding>
+                           <Insets top="30" right="40" bottom="30" left="40" />
+                        </padding>
+
+                        <!-- Personal Information Section -->
+                        <VBox spacing="8">
+                           <HBox alignment="CENTER_LEFT" styleClass="section-header">
+                              <FontAwesomeIconView glyphName="ID_CARD" size="16" styleClass="section-icon" />
+                              <Label text="Informations Personnelles" styleClass="section-subtitle" />
+                           </HBox>
+
+                           <!-- CIN Field -->
+                           <VBox spacing="5" styleClass="input-group">
+                              <Label text="CIN" styleClass="form-label" />
+                              <HBox spacing="10" alignment="CENTER_LEFT">
+                                 <FontAwesomeIconView glyphName="ID_CARD_O" size="16" styleClass="field-icon" />
+                                 <TextField fx:id="tfcin" promptText="Entrez votre CIN" styleClass="form-field" HBox.hgrow="ALWAYS" />
+                              </HBox>
+                           </VBox>
+
+                           <!-- Phone Field -->
+                           <VBox spacing="5" styleClass="input-group">
+                              <Label text="Numéro de téléphone" styleClass="form-label" />
+                              <HBox spacing="10" alignment="CENTER_LEFT">
+                                 <FontAwesomeIconView glyphName="PHONE" size="16" styleClass="field-icon" />
+                                 <TextField fx:id="tfnum_tel" promptText="Entrez votre numéro de téléphone" styleClass="form-field" HBox.hgrow="ALWAYS" />
+                              </HBox>
+                           </VBox>
+
+                           <!-- Name Fields -->
+                           <HBox spacing="15">
+                              <VBox spacing="5" styleClass="input-group" HBox.hgrow="ALWAYS">
+                                 <Label text="Nom" styleClass="form-label" />
+                                 <HBox spacing="10" alignment="CENTER_LEFT">
+                                    <FontAwesomeIconView glyphName="USER" size="16" styleClass="field-icon" />
+                                    <TextField fx:id="tfnom" promptText="Entrez votre nom" styleClass="form-field" HBox.hgrow="ALWAYS" />
+                                 </HBox>
+                              </VBox>
+
+                              <VBox spacing="5" styleClass="input-group" HBox.hgrow="ALWAYS">
+                                 <Label text="Prénom" styleClass="form-label" />
+                                 <TextField fx:id="tfprenom" promptText="Entrez votre prénom" styleClass="form-field" />
+                              </VBox>
+                           </HBox>
+                        </VBox>
+
+                        <!-- Account Information Section -->
+                        <VBox spacing="8">
+                           <HBox alignment="CENTER_LEFT" styleClass="section-header">
+                              <FontAwesomeIconView glyphName="LOCK" size="16" styleClass="section-icon" />
+                              <Label text="Informations de Connexion" styleClass="section-subtitle" />
+                           </HBox>
+
+                           <!-- Email Field -->
+                           <VBox spacing="5" styleClass="input-group">
+                              <Label text="Email" styleClass="form-label" />
+                              <HBox spacing="10" alignment="CENTER_LEFT">
+                                 <FontAwesomeIconView glyphName="ENVELOPE" size="16" styleClass="field-icon" />
+                                 <TextField fx:id="tfemail" promptText="Entrez votre email" styleClass="form-field" HBox.hgrow="ALWAYS" />
+                              </HBox>
+                           </VBox>
+
+                           <!-- Password Field -->
+                           <VBox spacing="5" styleClass="input-group">
+                              <Label text="Mot de passe" styleClass="form-label" />
+                              <HBox spacing="10" alignment="CENTER_LEFT">
+                                 <FontAwesomeIconView glyphName="KEY" size="16" styleClass="field-icon" />
+                                 <StackPane HBox.hgrow="ALWAYS">
+                                    <PasswordField fx:id="tfmdp" promptText="Entrez votre mot de passe" styleClass="form-field" />
+                                    <TextField fx:id="tfshowpassword" promptText="Entrez votre mot de passe" styleClass="form-field" visible="false" />
+                                 </StackPane>
+                                 <CheckBox fx:id="show" text="Afficher" styleClass="show-password" />
+                              </HBox>
+
+                              <!-- Password Strength Label -->
+                              <Label fx:id="passwordStrengthLabel" styleClass="password-strength" />
+                           </VBox>
+                        </VBox>
+
+                        <!-- Role Selection Section -->
+                        <VBox spacing="8">
+                           <HBox alignment="CENTER_LEFT" styleClass="section-header">
+                              <FontAwesomeIconView glyphName="USERS" size="16" styleClass="section-icon" />
+                              <Label text="Sélection du Rôle" styleClass="section-subtitle" />
+                           </HBox>
+
+                           <VBox spacing="15" styleClass="role-selection">
+                              <!-- First we'll organize the radio buttons in a visually pleasing way -->
+                              <TilePane hgap="20" vgap="15" prefColumns="3">
+                                 <!-- All radio buttons are now part of the same toggle group -->
+                                 <RadioButton fx:id="rbmembre" text="Stagiaire" styleClass="role-radio" selected="true" />
+                                 <RadioButton fx:id="rbemploye" text="Employé" styleClass="role-radio" />
+                                 <RadioButton fx:id="rbmanager" text="Manager" styleClass="role-radio" />
+                                 <RadioButton fx:id="rbrh" text="RH" styleClass="role-radio" />
+                                 <RadioButton fx:id="rbadmin" text="Admin" styleClass="role-radio" />
+                              </TilePane>
+                           </VBox>
+                        </VBox>
+
+                        <!-- Action Buttons -->
+                        <HBox spacing="15" alignment="CENTER">
+                           <Button fx:id="btn_annul" text="Annuler" onAction="#annuler" styleClass="secondary-button" />
+                           <Button fx:id="btn_inscri" text="S'inscrire" onAction="#savePerson" styleClass="primary-button" />
+                        </HBox>
+
+                        <!-- Login Link -->
+                        <HBox alignment="CENTER" styleClass="login-link-container">
+                           <Label text="Vous avez déjà un compte? " styleClass="form-label" />
+                           <Hyperlink fx:id="hyperlink" text="Se connecter" onAction="#redirectToAuthPage" styleClass="login-link" />
+                        </HBox>
+                     </VBox>
+                  </StackPane>
+               </VBox>
+            </ScrollPane>
+         </center>
+
+         <!-- Footer -->
+         <bottom>
+            <HBox alignment="CENTER" styleClass="footer">
+               <Label text="© 2025 - RHCONNECT | Tous droits réservés" />
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</StackPane>

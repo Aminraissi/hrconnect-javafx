@@ -1,0 +1,137 @@
+/* General layout and font settings */
+.root {
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-background-color: #f4f4f9;
+}
+
+/* Header section */
+.vbox {
+    -fx-spacing: 10;
+    -fx-alignment: center;
+}
+
+.hbox {
+    -fx-spacing: 10;
+}
+
+.container {
+    -fx-background-color: #f4f4f4;
+}
+
+.title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.subtitle {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.label {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* Styling the ComboBox, TextField and DatePicker */
+.combo-box, .text-field, .date-picker {
+    -fx-pref-width: 200px;
+    -fx-padding: 5px;
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+}
+
+.combo-box:focused, .text-field:focused, .date-picker:focused {
+    -fx-border-color: #4a90e2;
+}
+
+/* Button styling */
+.button {
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-background-color: #4a90e2;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #357abd;
+}
+
+.button:pressed {
+    -fx-background-color: #2d6ca2;
+}
+
+/* TableView styling */
+.table-view {
+    -fx-font-size: 12px;
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(gaussian, #000000, 2, 0.2, 0, 0);
+}
+
+/* TableColumn Header */
+.table-column {
+    -fx-alignment: center-left;
+    -fx-text-fill: #333;
+}
+
+.table-column .text {
+    -fx-font-weight: bold;
+}
+
+/* TableCell */
+.table-cell {
+    -fx-padding: 10px;
+}
+
+/* Styling for search section */
+.vbox > .hbox {
+    -fx-spacing: 10px;
+}
+
+.date-picker {
+    -fx-pref-width: 180px;
+}
+
+/* Alert box customization */
+.alert {
+    -fx-background-color: #f9f9f9;
+    -fx-border-radius: 8px;
+}
+
+.alert .header {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-text-fill: #ff6b6b;
+}
+
+/* Bottom Delete Section */
+.hbox > .button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+}
+
+.hbox > .button:hover {
+    -fx-background-color: #c0392b;
+}
+
+/* Styling for Coût label */
+#coutLabel {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}

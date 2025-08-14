@@ -1,0 +1,54 @@
+/* Global Styles */
+.root {
+    -fx-background-color: #f4f4f4;
+    -fx-font-family: "Arial";
+}
+
+/* Title Label */
+.label {
+    -fx-text-fill: #333;
+}
+
+/* Buttons */
+.button-bleu {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-padding: 8px 16px;
+    -fx-font-size: 14px;
+    -fx-background-radius: 5px;
+}
+
+.button-bleu:hover {
+    -fx-background-color: #0056b3;
+}
+
+/* Table View */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #007bff;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Pie Chart */
+.chart-pie-label {
+    -fx-font-size: 12px;
+    -fx-fill: black;
+}
+
+/* ScrollPane Styling */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Pagination?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.melocode.semin.controllers.SeminaireController" stylesheets="@part.css">
+    <!-- Scrollable Container -->
+    <ScrollPane fitToWidth="true" fitToHeight="true">
+        <VBox alignment="TOP_CENTER" spacing="10" style="-fx-background-color: #f4f4f4;" styleClass="blueVBox">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <Label style="-fx-font-size: 20px;" styleClass="titre-bleu" text="Ajouter un Séminaire" textFill="BLACK" />
+
+            <!-- Seminar Fields -->
+            <TextField fx:id="nomField" promptText="Nom du Séminaire" styleClass="Label" />
+            <DatePicker fx:id="dateDebutField" promptText="Date Début" styleClass="ComboBox" />
+            <DatePicker fx:id="dateFinField" promptText="Date Fin" styleClass="ComboBox" />
+            <Button onAction="#searchSeminaire" text="Chercher" styleClass="button-bleu" />
+
+            <Label fx:id="statsLabel" style="-fx-font-size: 16px;" text="Statistiques : " />
+
+            <!-- Seminar Details -->
+            <HBox spacing="10" alignment="CENTER">
+                <TextField fx:id="lieuField" promptText="Lieu" />
+                <TextField fx:id="formateurField" promptText="Formateur" />
+            </HBox>
+
+            <TextArea fx:id="descriptionField" promptText="Description" styleClass="TextArea" />
+
+            <HBox spacing="10" alignment="CENTER">
+                <TextField fx:id="coutField" promptText="Coût" />
+                <ComboBox fx:id="typeComboBox" promptText="Type" />
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="ajouterBtn" onAction="#ajouterSeminaire" text="Ajouter" styleClass="button-bleu" />
+                <Button fx:id="updateBtn" onAction="#updateSeminaire" text="Mettre à jour" styleClass="button-bleu" />
+            </HBox>
+            <Button fx:id="showCalendarBtn" text="Afficher Calendrier" onAction="#showCalendar" styleClass="button-bleu"/>
+            <AnchorPane fx:id="calendarContainer" />
+
+            <!-- Table for Seminars -->
+            <TableView fx:id="tableViewSeminaire" prefHeight="300" prefWidth="800" onMouseClicked="#handleTableClick">
+                <columns>
+                    <TableColumn fx:id="columnNom" text="Nom" />
+                    <TableColumn fx:id="columnDescription" text="Description" />
+                    <TableColumn fx:id="columnDateDebut" text="Date Début" />
+                    <TableColumn fx:id="columnDateFin" text="Date Fin" />
+                    <TableColumn fx:id="columnLieu" text="Lieu" />
+                    <TableColumn fx:id="columnFormateur" text="Formateur" />
+                    <TableColumn fx:id="columnCout" text="Coût" />
+                    <TableColumn fx:id="columnType" text="Type" />
+                </columns>
+            </TableView>
+
+            <!-- Pagination -->
+            <Pagination fx:id="pagination" />
+
+            <!-- Seminar Statistics Chart -->
+            <BarChart fx:id="seminaireStatsChart" title="Statistiques des Séminaires">
+                <xAxis>
+                    <CategoryAxis label="Type" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Nombre" />
+                </yAxis>
+            </BarChart>
+
+        </VBox>
+    </ScrollPane>
+</AnchorPane>

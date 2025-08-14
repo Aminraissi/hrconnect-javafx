@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.ScrollPane?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="650.0" prefWidth="1100.0" stylesheets="@../dashboard.css"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.FormulaireCandidatureController">
+    <left>
+        <AnchorPane fx:id="menu" prefHeight="200.0" prefWidth="200.0" styleClass="menu" BorderPane.alignment="CENTER" />
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="bg-white">
+            <VBox fx:id="formContainer" spacing="15.0" styleClass="form-container">
+                <VBox alignment="CENTER">
+                    <Label styleClass="form-title" text="Postuler à l'offre">
+                        <padding>
+                            <Insets top="50.0" />
+                        </padding>
+                    </Label>
+                </VBox>
+
+                <Label styleClass="form-label" text="Nom" />
+                <TextField fx:id="tnom" promptText="Entrez le nom" styleClass="form-textfield" />
+
+                <Label styleClass="form-label" text="Prénom" />
+                <TextField fx:id="tprenom" promptText="Entrez le prénom" styleClass="form-textfield" />
+
+                <Label styleClass="form-label" text="Email" />
+                <TextField fx:id="temail" promptText="Entrez l'email" styleClass="form-textfield" />
+
+                <Label styleClass="form-label" text="Téléphone" />
+                <TextField fx:id="ttelephone" promptText="Entrez le téléphone" styleClass="form-textfield" />
+
+                <Label styleClass="form-label" text="CV" />
+                <TextArea fx:id="tcv" editable="false" styleClass="form-textfield" />
+                <Button text="Choisir un fichier CV" onAction="#choisirFichierCV" styleClass="custom-button" />
+
+                <HBox alignment="CENTER" spacing="20" style="-fx-padding: 20 0 0 0;">
+                    <Button fx:id="btnSoumettre" text="Soumettre" onAction="#saveCandidature"
+                            style="-fx-background-color: linear-gradient(to right, purple, cyan); -fx-text-fill: white; -fx-pref-width: 150px; -fx-pref-height: 40px;" />
+                    <Button fx:id="btnAnnuler" text="Annuler" onAction="#annuler"
+                            style="-fx-background-color: linear-gradient(to right, purple, cyan); -fx-text-fill: white; -fx-pref-width: 150px; -fx-pref-height: 40px;" />
+                </HBox>
+
+                <padding>
+                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                </padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

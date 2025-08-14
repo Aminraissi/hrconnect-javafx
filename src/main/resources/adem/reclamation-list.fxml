@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.melocode.hrreclam.ReclamationListController">
+    <children>
+
+        <!-- TableView for displaying Reclamations -->
+        <TableView fx:id="tableReclamations" layoutX="20" layoutY="20" prefWidth="750" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colEmployeeName" text="Nom Employé" prefWidth="100"/>
+                <TableColumn fx:id="colType" text="Type" prefWidth="100"/>
+                <TableColumn fx:id="colDescription" text="Description" prefWidth="200"/>
+                <TableColumn fx:id="colDateSubmission" text="Date de Soumission" prefWidth="120"/>
+                <TableColumn fx:id="colStatus" text="Statut" prefWidth="100"/>
+                <TableColumn fx:id="colPriority" text="Priorité" prefWidth="80"/>
+            </columns>
+        </TableView>
+
+        <!-- Input Field & Buttons -->
+        <HBox layoutX="20" layoutY="340" spacing="10">
+            <children>
+                <Label text="ID Réclamation:"/>
+                <TextField fx:id="txtReclamationId" prefWidth="100"/>
+                <Button text="Supprimer" onAction="#deleteReclamation" style="-fx-background-color: #d9534f; -fx-text-fill: white;"/>
+                <Button text="Actualiser" onAction="#refreshTable" style="-fx-background-color: #5bc0de; -fx-text-fill: white;"/>
+                <Button text="Ajouter Réclamation" onAction="#openAddReclamationForm" style="-fx-background-color: #5cb85c; -fx-text-fill: white;"/>
+            </children>
+        </HBox>
+
+    </children>
+</AnchorPane>

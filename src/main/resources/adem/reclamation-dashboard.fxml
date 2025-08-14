@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootPane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.melocode.hrreclam.ReclamationDashboardController">
+
+    <VBox prefHeight="848.0" prefWidth="794.0" spacing="15" styleClass="main-container">
+        <padding>
+            <Insets bottom="10" left="10" right="10" top="10" />
+        </padding>
+
+        <!-- Logo Section -->
+        <HBox alignment="CENTER">
+            <ImageView fitHeight="80" fitWidth="80">
+                <image>
+                    <Image url="@images/final.png" />
+                </image>
+            </ImageView>
+        </HBox>
+
+        <!-- Navigation Pane -->
+        <Pane prefHeight="60" styleClass="nav-bar">
+            <HBox alignment="CENTER" spacing="20">
+                <Button fx:id="btnAjouter" onAction="#submitReclamation" styleClass="nav-button" text="Ajouter" />
+                <Button fx:id="btnListeRec" onAction="#refreshTable" styleClass="nav-button" text="Liste Rec" />
+                <Button fx:id="btnExtra1" styleClass="nav-button" text="Extra 1" />
+                <Button fx:id="btnExtra2" styleClass="nav-button" text="Extra 2" />
+            </HBox>
+        </Pane>
+
+        <!-- Tab Pane -->
+        <TabPane>
+            <tabs>
+
+                <!-- Add Reclamation Tab -->
+                <Tab text="Ajouter Réclamation">
+                    <VBox spacing="10" styleClass="tab-container">
+                        <Label styleClass="title-label" text="Ajouter une Réclamation" />
+                        <Label text="Employé:" />
+                        <ComboBox fx:id="comboEmployeeId" promptText="Sélectionnez l'employé" />
+                        <Label text="Type de réclamation:" />
+                        <ComboBox fx:id="comboReclamationType" promptText="Sélectionnez un type" />
+                        <Label text="Description:" />
+                        <TextArea fx:id="txtDescription" promptText="Entrez la description" styleClass="text-area" />
+                        <Button fx:id="btnSubmit" onAction="#submitReclamation" styleClass="primary-button" text="Soumettre" />
+                        <!-- Chatbot Button -->
+                        <Button fx:id="btnChatbot" onAction="#openChatbot" styleClass="chatbot-button" text="ChatBot" />
+                    </VBox>
+                </Tab>
+
+                <!-- Reclamation List Tab -->
+                <Tab text="Liste des Réclamations">
+                    <VBox spacing="10" styleClass="tab-container">
+                        <TableView fx:id="tableReclamations" styleClass="table-view">
+                            <columns>
+                                <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+                                <TableColumn fx:id="colEmployeeName" prefWidth="120" text="Nom Employé" />
+                                <TableColumn fx:id="colType" prefWidth="120" text="Type" />
+                                <TableColumn fx:id="colDescription" prefWidth="200" text="Description" />
+                                <TableColumn fx:id="colDateSubmission" prefWidth="130" text="Date de Soumission" />
+                                <TableColumn fx:id="colStatus" prefWidth="100" text="Statut" />
+                                <TableColumn fx:id="colPriority" prefWidth="80" text="Priorité" />
+                            </columns>
+                        </TableView>
+
+                        <!-- Controls for Deleting & Refreshing -->
+                        <HBox spacing="10">
+                            <Label text="ID Réclamation:" />
+                            <TextField fx:id="txtReclamationId" prefWidth="100" />
+                            <Button fx:id="btnDelete" onAction="#deleteReclamation" styleClass="danger-button" text="Supprimer" />
+                            <Button fx:id="btnRefresh" onAction="#refreshTable" styleClass="secondary-button" text="Actualiser" />
+                        </HBox>
+                    </VBox>
+                </Tab>
+            </tabs>
+        </TabPane>
+
+    </VBox>
+</AnchorPane>

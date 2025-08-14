@@ -1,0 +1,178 @@
+/* Style global */
+.root {
+    -fx-background-color: #f4f4f4;
+    -fx-font-family: "Arial";
+}
+
+/* Style du titre */
+.label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+
+/* Conteneur des cartes */
+#cardContainer {
+    -fx-padding: 10px;
+    -fx-hgap: 15px;
+    -fx-vgap: 15px;
+    -fx-alignment: center;
+}
+
+/* Style des cartes */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 8px;
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+    -fx-pref-width: 100%;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.5, 0, 2);
+    -fx-transition: all 0.3s ease-in-out;
+
+}
+
+/* Effet hover sur les cartes */
+.card:hover {
+    -fx-background-color: #f0f0f0;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Style des boutons */
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;  /* Agrandir la taille du texte des boutons */
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px 15px; /* Augmenter l'espace autour du texte */
+    -fx-cursor: hand;
+}
+
+/* Effet hover sur les boutons */
+.button:hover {
+    -fx-background-color: #45A049;
+}
+
+/* Désactiver les boutons */
+.button:disabled {
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #666666;
+}
+
+/* Style du ScrollPane contenant les cartes */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+}
+
+/* Style du label de détails */
+#lblDetailsDemande {
+    -fx-font-size: 16px;  /* Agrandir le texte */
+    -fx-padding: 15px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.5, 0, 2);
+    -fx-wrap-text: true;
+}
+
+/* Style du formulaire */
+.vbox {
+    -fx-padding: 15px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-spacing: 12px;
+}
+
+/* Style des labels dans le formulaire */
+.hbox > .label {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;  /* Agrandir la taille des labels */
+}
+
+/* Style des champs de saisie */
+.combo-box, .text-area {
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-font-size: 14px;  /* Agrandir la taille des champs de saisie */
+}
+
+/* Focus sur les champs */
+.combo-box:focused, .text-area:focused {
+    -fx-border-color: #4CAF50;
+    -fx-border-width: 2px;
+}
+
+/* ------------------------------- Media Queries ------------------------------- */
+
+/* Tablettes (portrait) */
+@media screen and (max-width: 768px) {
+    /* Taille des cartes */
+    .card {
+        -fx-pref-width: 100%;
+    }
+
+    /* Conteneur des cartes */
+    #cardContainer {
+        -fx-hgap: 10px;
+        -fx-vgap: 10px;
+        -fx-alignment: center;
+    }
+
+    /* Formulaire */
+    .vbox {
+        -fx-spacing: 8px;
+    }
+
+    /* Boutons */
+    .button {
+        -fx-font-size: 12px;
+    }
+
+    /* Réduire la taille des labels */
+    .label {
+        -fx-font-size: 14px;
+    }
+}
+
+/* Mobiles (portrait et paysage) */
+@media screen and (max-width: 480px) {
+    /* Taille des cartes */
+    .card {
+        -fx-pref-width: 100%;
+        -fx-padding: 8px;
+    }
+
+    /* Conteneur des cartes */
+    #cardContainer {
+        -fx-hgap: 5px;
+        -fx-vgap: 5px;
+        -fx-alignment: center;
+    }
+
+    /* Formulaire */
+    .vbox {
+        -fx-spacing: 6px;
+    }
+
+    /* Réduire la taille des boutons */
+    .button {
+        -fx-font-size: 10px;
+    }
+
+    /* Réduire la taille des labels */
+    .label {
+        -fx-font-size: 12px;
+    }
+
+    /* Réduire la taille du label de détails */
+    #lblDetailsDemande {
+        -fx-font-size: 12px;
+        -fx-padding: 5px;
+    }
+}
